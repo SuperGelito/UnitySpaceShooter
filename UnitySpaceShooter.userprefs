@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\2dspaceshooter\Scripts\environment.js">
+    <Files>
+      <File FileName="Assets\2dspaceshooter\Scripts\playercontrols.js" Line="64" Column="28" />
+      <File FileName="Assets\2dspaceshooter\Scripts\menu.js" Line="1" Column="1" />
+      <File FileName="Assets\2dspaceshooter\Scripts\asteroid.js" Line="24" Column="1" />
+      <File FileName="Assets\2dspaceshooter\Scripts\enemyspawner.js" Line="39" Column="36" />
+      <File FileName="Assets\2dspaceshooter\Scripts\enemyship.js" Line="64" Column="24" />
+      <File FileName="Assets\2dspaceshooter\Scripts\environment.js" Line="87" Column="3" />
+      <File FileName="Assets\2dspaceshooter\Scripts\fireanimator.js" Line="1" Column="1" />
+      <File FileName="Assets\2dspaceshooter\Scripts\bullet.js" Line="23" Column="21" />
+      <File FileName="Assets\2dspaceshooter\Scripts\shiphealth.js" Line="23" Column="36" />
+      <File FileName="Assets\2dspaceshooter\Scripts\orbenemy.js" Line="67" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
