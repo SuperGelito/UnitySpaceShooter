@@ -5,9 +5,9 @@ public class environment extends MonoBehaviour
 	public var player : GameObject;
 	public var playerControl : playercontrols;
 	//Enemies 
-	public var asteroids: Array = new Array();
-	public var orbs: Array = new Array();
-	public var enemyships: Array = new Array();
+	public var asteroids: Hashtable = new Hashtable();
+	public var orbs: Hashtable = new Hashtable();
+	public var enemyships: Hashtable = new Hashtable();
 	public var asteroidsToRemove: Array = new Array();
 	public var orbsToRemove: Array = new Array();
 	public var enemyshipsToRemove: Array = new Array();
@@ -37,31 +37,28 @@ public class environment extends MonoBehaviour
 	
 	function addAsteroid(asteroid:GameObject)
 	{
-		asteroids.Push(asteroid);
-		Debug.Log("Number of asteroids" + asteroids.length.ToString());
+		asteroids.Add(asteroid.GetInstanceID(),asteroid);
+		Debug.Log("Number of asteroids" + asteroids.Count.ToString());
 	}
 
 	function addOrb(orb:GameObject)
 	{
-		orbs.Push(orb);
-		Debug.Log("Number of orbs" + orbs.length.ToString());
+		orbs.Add(orb.GetInstanceID(),orb);
+		Debug.Log("Number of orbs" + orbs.Count.ToString());
 	}
 	
 	function addEnemyShip(enemyShip:GameObject)
 	{
-		enemyships.Push(enemyShip);
-		Debug.Log("Number of enemy ships" + enemyships.length.ToString());
+		enemyships.Add(enemyShip.GetInstanceID(),enemyShip);
+		Debug.Log("Number of enemy ships" + enemyships.Count.ToString());
 	}
 	
 	function AddToRemovedEnemies(enemy:GameObject,enemyType:EnemyTypeEnum){
 		if(enemyType == EnemyTypeEnum.Asteroid)
-			//removeAsteroid(enemy);
 			asteroidsToRemove.Add(enemy);
 		else if(enemyType == EnemyTypeEnum.EnemyShip)
-			//removeEnemyShip(enemy);
 			enemyshipsToRemove.Add(enemy);
 		else if(enemyType == EnemyTypeEnum.Orb)
-			//removeOrb(enemy);
 			orbsToRemove.Add(enemy);
 	}
 
@@ -86,33 +83,23 @@ public class environment extends MonoBehaviour
 	function removeAsteroid(asteroid:GameObject)
 	{
 		asteroids = removeEnemyArray(asteroids,asteroid);
-		Debug.Log("Number of asteroids" + asteroids.length.ToString());
+		Debug.Log("Number of asteroids" + asteroids.Count.ToString());
 	}
 
 	function removeOrb(orb:GameObject)
 	{
 		orbs =removeEnemyArray(orbs,orb);
-		Debug.Log("Number of orbs" + orbs.length.ToString());
+		Debug.Log("Number of orbs" + orbs.Count.ToString());
 	}
 	
 	function removeEnemyShip(enemyShip:GameObject)
 	{
 		enemyships =removeEnemyArray(enemyships,enemyShip);
-		Debug.Log("Number of enemy ships" + enemyships.length.ToString());
+		Debug.Log("Number of enemy ships" + enemyships.Count.ToString());
 	}
-	function removeEnemyArray(list:Array,obj:GameObject)
+	function removeEnemyArray(list:Hashtable,obj:GameObject)
 	{ 
-		var index:int;
-		
-		for(var i:int = 0;i < list.length;i++)
-		{
-		  	var elemObj:GameObject;
-		  	elemObj =list[i];
-			if(elemObj.GetInstanceID == obj.GetInstanceID)
-			index=i;
-		}
-		
-		list.RemoveAt(index);
+		list.Remove(obj.GetInstanceID);
 		return list;
 	}
 	//Evaluate user actions
